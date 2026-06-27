@@ -383,11 +383,11 @@
             document.getElementById('res-calories').textContent = Math.round(weight * 40) + ' kcal';
         });
 
-        // Registro automático de Service Worker para o PWA funcionar offline
+        // Registro de Service Worker isolado para evitar conflito com outros apps do mesmo domínio
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('Service Worker ativo e registrado com sucesso!', reg.scope))
+                navigator.serviceWorker.register('./sw.js', { scope: './' })
+                .then(reg => console.log('Service Worker isolado ativo e registrado com sucesso!', reg.scope))
                 .catch(err => console.log('Falha ao registrar o Service Worker:', err));
             });
         }
