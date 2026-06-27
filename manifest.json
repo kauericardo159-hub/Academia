@@ -1,0 +1,31 @@
+{
+    "name": "Femboy Aesthetics | Treino, Dieta e Cuidado",
+    "short_name": "FemboyAesthetics",
+    "description": "Aplicativo pessoal ultra-estilizado com rotinas de treinos para glúteos e coxas, calculadoras nutricionais inteligentes e guias de cuidados estéticos avançados.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#0b080d",
+    "theme_color": "#0b080d",
+    "categories": [
+        "health",
+        "fitness",
+        "lifestyle"
+    ],
+    "lang": "pt-BR",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

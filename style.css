@@ -1,0 +1,521 @@
+/* ==========================================
+   VARIÁVEIS DE TEMA (Estética Femboy Premium - Adaptada ao Ícone)
+   ========================================== */
+:root {
+    --bg-color: #fcf6ed;
+    --surface-color: rgba(255, 255, 255, 0.88);
+    --surface-solid: #ffffff;
+    --text-primary: #1f1911;
+    --text-secondary: #5c503d;
+    --brand-primary: #ff9f1c; /* Laranja/Âmbar da Imagem */
+    --brand-secondary: #e67e22;
+    --border-color: rgba(255, 159, 28, 0.25);
+    --shadow: 0 10px 30px rgba(255, 159, 28, 0.1);
+    --glass-blur: blur(14px);
+    --glow-opacity: 0.12;
+}
+
+body.dark-theme {
+    --bg-color: #0b080d;
+    --surface-color: rgba(20, 15, 26, 0.82);
+    --surface-solid: #140f1a;
+    --text-primary: #f5f0fa;
+    --text-secondary: #baa9c4;
+    --brand-primary: #ffaa00; /* Destaque Ouro/Âmbar Vibrante combinado com a foto */
+    --brand-secondary: #ff7700; 
+    --border-color: rgba(255, 170, 0, 0.3); /* Bordas marcantes como os círculos da foto */
+    --shadow: 0 10px 35px rgba(255, 170, 0, 0.14);
+    --glow-opacity: 0.40;
+}
+
+/* ==========================================
+   RESET & SETUP GERAL COM ANIMAÇÕES DE AMBIENTE
+   ========================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-primary); 
+    line-height: 1.6; 
+    padding-bottom: 120px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Camada Avançada Dinâmica para Imagem de Fundo */
+body::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: -3;
+    background: linear-gradient(135deg, rgba(20, 15, 26, 0.94), rgba(8, 6, 12, 0.97)), url('fundo.png');
+    background-size: cover;
+    background-position: center;
+    transform: translate3d(0,0,0);
+    will-change: transform;
+    animation: backgroundMotion 30s ease-in-out infinite alternate;
+}
+
+/* Luz Ambiente Neon 1 (Superior Direito) */
+body::after {
+    content: "";
+    position: fixed;
+    top: -250px;
+    right: -250px;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 170, 0, 0.15) 0%, rgba(255, 119, 0, 0) 70%);
+    opacity: var(--glow-opacity);
+    z-index: -2;
+    pointer-events: none;
+    transform: translate3d(0,0,0);
+    animation: ambientGlowOne 9s ease-in-out infinite alternate;
+}
+
+/* Camada Auxiliar para Luz Ambiente Neon 2 (Inferior Esquerdo) e Textura */
+.container::before {
+    content: "";
+    position: fixed;
+    bottom: -200px;
+    left: -200px;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 119, 0, 0.10) 0%, rgba(20, 15, 26, 0) 70%);
+    opacity: var(--glow-opacity);
+    z-index: -2;
+    pointer-events: none;
+    transform: translate3d(0,0,0);
+    animation: ambientGlowTwo 12s ease-in-out infinite alternate;
+}
+
+/* Movimento Orgânico do Fundo */
+@keyframes backgroundMotion {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-1%, 0.5%, 0) scale(1.03); }
+    100% { transform: translate3d(0.5%, -0.5%, 0) scale(1.01); }
+}
+
+/* Pulsação e Deslocamento dos Neons de Fundo */
+@keyframes ambientGlowOne {
+    0% { transform: translate3d(0, 0, 0) scale(1); opacity: calc(var(--glow-opacity) * 0.8); }
+    100% { transform: translate3d(-35px, 45px, 0) scale(1.12); opacity: calc(var(--glow-opacity) * 1.2); }
+}
+
+@keyframes ambientGlowTwo {
+    0% { transform: translate3d(0, 0, 0) scale(1.1); opacity: calc(var(--glow-opacity) * 1.1); }
+    100% { transform: translate3d(40px, -25px, 0) scale(0.95); opacity: calc(var(--glow-opacity) * 0.8); }
+}
+
+.container {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    position: relative;
+}
+
+/* ==========================================
+   HEADER & NAVEGAÇÃO (Efeito Vidro Premium)
+   ========================================== */
+.main-header { 
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: rgba(11, 8, 13, 0.82);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 2px solid var(--border-color); 
+    padding: 1.2rem 1rem; 
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.45);
+}
+
+.header-container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.header-top { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.2rem; 
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ícone estilizado com o contorno circular nítido da foto */
+.site-icon { 
+    width: 52px; 
+    height: 52px; 
+    border-radius: 50%; 
+    border: 3px double var(--brand-primary); 
+    object-fit: cover; 
+    box-shadow: 0 0 14px rgba(255, 170, 0, 0.25);
+}
+
+.brand-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.brand-name .highlight {
+    color: var(--brand-primary);
+    background: linear-gradient(45deg, var(--brand-primary), var(--brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.theme-btn { 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--border-color); 
+    color: white; 
+    border-radius: 50%; 
+    width: 42px; 
+    height: 42px; 
+    font-size: 1.1rem; 
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.theme-btn:hover { 
+    background: var(--brand-primary); 
+    color: #140f1a;
+    transform: scale(1.08);
+    box-shadow: 0 0 18px var(--brand-primary);
+}
+
+/* Abas Navigation Fluídas */
+.custom-nav { 
+    display: flex; 
+    justify-content: flex-start; 
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 6px;
+    scrollbar-width: none; 
+}
+
+.custom-nav::-webkit-scrollbar {
+    display: none; 
+}
+
+.nav-item { 
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: #e5def0;
+    cursor: pointer; 
+    padding: 8px 18px; 
+    border-radius: 20px; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.nav-item:hover { 
+    color: #ffffff;
+    background: rgba(255, 170, 0, 0.12);
+    border-color: var(--brand-primary);
+    transform: translateY(-1px);
+}
+
+.nav-item.active { 
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    color: #140f1a; 
+    font-weight: 700; 
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(255, 170, 0, 0.35);
+    transform: translateY(0);
+}
+
+/* ==========================================
+   GERENCIAMENTO DE PAINÉIS & ANIMAÇÕES
+   ========================================== */
+.panel { 
+    display: none; 
+    animation: smoothFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+.panel.active { 
+    display: block; 
+}
+
+@keyframes smoothFadeUp { 
+    from { opacity: 0; transform: translate3d(0, 18px, 0); } 
+    to { opacity: 1; transform: translate3d(0, 0, 0); } 
+}
+
+.panel-header {
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.section-title { 
+    color: var(--brand-primary); 
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem; 
+    font-weight: 700;
+    margin-bottom: 0.5rem; 
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* ==========================================
+   CARDS & CONTEÚDO (Glassmorphism de Alta Definição)
+   ========================================== */
+.grid-exercises {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.exercise-card, .info-card-premium, .clear-card { 
+    background-color: var(--surface-color); 
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-color); 
+    border-radius: 16px; 
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden; 
+    box-shadow: var(--shadow); 
+}
+
+.card-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom-left-radius: 12px;
+    color: #140f1a;
+}
+
+.tag-focus { background: rgba(255, 170, 0, 0.88); }
+.tag-beauty { background: rgba(255, 170, 0, 0.88); }
+.tag-alert { background: rgba(231, 76, 60, 0.92); color: #ffffff; }
+
+.exercise-header { 
+    margin-bottom: 1.2rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.exercise-header h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.exercise-header .sub-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    display: inline-block;
+}
+
+/* Badges Nítidas */
+.badge { 
+    padding: 0.3rem 0.8rem; 
+    border-radius: 20px; 
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    color: #ffffff;
+}
+.diff-easy { background-color: #2ecc71; } 
+.diff-medium { background-color: #f1c40f; color: #140f1a; } 
+.diff-hard { background-color: #e74c3c; } 
+
+.exercise-body .desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Metadados (Séries / Repetições / Descanso) */
+.card-meta {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-meta span {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.card-meta strong {
+    color: var(--brand-primary);
+}
+
+/* Listas Marcantes */
+.styled-list, .styled-numeric-list {
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.styled-list li, .styled-numeric-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.6rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.styled-list li::before {
+    content: "🔸";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 0.9rem;
+}
+
+.styled-numeric-list {
+    counter-reset: my-counter;
+}
+
+.styled-numeric-list li {
+    counter-increment: my-counter;
+}
+
+.styled-numeric-list li::before {
+    content: counter(my-counter) ".";
+    position: absolute;
+    left: 0;
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+.info-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* ==========================================
+   WIDGET DO CRONÔMETRO FLUTUANTE
+   ========================================== */
+.timer-widget {
+    position: fixed; 
+    bottom: 25px; 
+    right: 25px;
+    background: var(--surface-solid); 
+    border: 2px solid var(--border-color);
+    border-radius: 20px; 
+    padding: 15px 20px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.65);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 8px; 
+    z-index: 1000;
+}
+
+/* Estado de Execução Dinâmica */
+.timer-widget.timer-running {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 25px rgba(255, 170, 0, 0.45);
+}
+
+.timer-title { 
+    font-size: 0.75rem; 
+    color: var(--text-secondary); 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    letter-spacing: 1px;
+}
+
+.timer-display { 
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    font-family: 'Outfit', sans-serif; 
+    color: var(--brand-primary); 
+    letter-spacing: 1px; 
+    line-height: 1;
+    margin: 2px 0;
+}
+
+.timer-controls { 
+    display: flex; 
+    gap: 8px; 
+}
+
+.btn-timer-action {
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--border-color);
+    color: var(--text-primary); 
+    font-size: 1rem; 
+    width: 38px; 
+    height: 38px;
+    border-radius: 50%; 
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-timer-action:hover { 
+    background: var(--brand-primary); 
+    color: #140f1a; 
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+/* ==========================================
+   RESPONSIVIDADE PREMIUM
+   ========================================== */
+@media (max-width: 768px) {
+    .section-title { font-size: 1.8rem; }
+    .exercise-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .card-tag { position: relative; display: inline-block; border-radius: 6px; margin-bottom: 10px; top: unset; right: unset; padding: 3px 10px;}
+    .container { padding: 0 1rem; }
+}
+
+@media (max-width: 480px) {
+    .main-header { padding: 1rem 0.6rem; }
+    .brand-name { font-size: 1.3rem; }
+    .timer-widget { 
+        bottom: 20px; 
+        right: 20px; 
+        padding: 12px 16px; 
+        border-radius: 16px;
+    }
+    .timer-display { font-size: 1.8rem; }
+    .btn-timer-action { width: 35px; height: 35px; font-size: 0.95rem; }
+}
